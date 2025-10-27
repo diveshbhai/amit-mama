@@ -7,21 +7,24 @@
 }
 
 :root {
-    --primary-color: #0066ff;
-    --secondary-color: #00d4ff;
-    --accent-color: #ff6b35;
-    --dark-bg: #0a0a0a;
-    --card-bg: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
+    --primary-color: #2c5aa0;
+    --secondary-color: #0066ff;
+    --accent-color: #d4af37;
+    --light-bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-2: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
-    --gradient-3: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    --gradient-2: linear-gradient(135deg, #2c5aa0 0%, #0066ff 100%);
+    --gradient-3: linear-gradient(135deg, #d4af37 0%, #f7931e 100%);
+    --border-color: #e9ecef;
+    --shadow-light: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--dark-bg);
+    background: var(--light-bg);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -38,9 +41,10 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -132,8 +136,8 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: radial-gradient(ellipse at center, rgba(44, 90, 160, 0.05) 0%, transparent 70%),
+                linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
 }
@@ -145,7 +149,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(44,90,160,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
 }
 
@@ -215,26 +219,26 @@ body {
 .btn-primary {
     background: var(--gradient-2);
     color: white;
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+    box-shadow: var(--shadow-light);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+    box-shadow: var(--shadow-hover);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--secondary-color);
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
 }
 
 .btn-secondary:hover {
-    background: var(--secondary-color);
-    color: var(--dark-bg);
+    background: var(--primary-color);
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    box-shadow: var(--shadow-hover);
 }
 
 .hero-image {
@@ -262,18 +266,19 @@ body {
     transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(44, 90, 160, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
 
 /* Page Header */
 .page-header {
-    background: var(--dark-bg);
+    background: var(--light-bg);
     padding: 150px 0 100px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .page-header::before {
@@ -283,7 +288,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(44, 90, 160, 0.05) 0%, transparent 70%);
 }
 
 .page-header h1 {
@@ -308,7 +313,7 @@ body {
 /* Services */
 .services, .services-page {
     padding: 120px 0;
-    background: var(--dark-bg);
+    background: var(--light-bg);
     position: relative;
 }
 
@@ -336,7 +341,8 @@ body {
     padding: 50px 40px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -359,13 +365,13 @@ body {
 }
 
 .service-card:hover::before {
-    opacity: 0.05;
+    opacity: 0.03;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-color: var(--secondary-color);
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
 }
 
 .service-icon {
@@ -432,7 +438,7 @@ body {
 /* About Page */
 .about, .about-page {
     padding: 120px 0;
-    background: var(--dark-bg);
+    background: var(--card-bg);
 }
 
 .about-content {
@@ -480,9 +486,10 @@ body {
 .features-grid .feature {
     text-align: center;
     padding: 40px 30px;
-    background: var(--card-bg);
+    background: var(--light-bg);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
     transition: all 0.4s ease;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -490,8 +497,8 @@ body {
 
 .features-grid .feature:hover {
     transform: translateY(-5px);
-    border-color: var(--secondary-color);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
 }
 
 .features-grid .feature i {
@@ -535,15 +542,14 @@ body {
     font-size: 6rem;
     color: white;
     animation: pulse 2s infinite;
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+    box-shadow: var(--shadow-hover);
 }
 
 /* Stats Section */
 .stats-section {
-    background: var(--card-bg);
+    background: var(--gradient-2);
     padding: 100px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .stats-grid {
@@ -556,16 +562,13 @@ body {
 .stat-number {
     font-size: 4rem;
     font-weight: 800;
-    background: var(--gradient-2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent-color);
     margin-bottom: 15px;
 }
 
 .stat-label {
     font-size: 1.3rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -574,7 +577,7 @@ body {
 /* Values Section */
 .values-section {
     padding: 120px 0;
-    background: var(--dark-bg);
+    background: var(--light-bg);
 }
 
 .values-grid {
@@ -588,7 +591,8 @@ body {
     padding: 50px 40px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
     transition: all 0.4s ease;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -596,8 +600,8 @@ body {
 
 .value-card:hover {
     transform: translateY(-10px);
-    border-color: var(--secondary-color);
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
 }
 
 .value-card i {
@@ -629,7 +633,7 @@ body {
 /* Contact Page */
 .contact, .contact-page {
     padding: 120px 0;
-    background: var(--dark-bg);
+    background: var(--card-bg);
 }
 
 .contact-content {
@@ -675,7 +679,7 @@ body {
     color: white;
     font-size: 1.8rem;
     flex-shrink: 0;
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    box-shadow: var(--shadow-light);
 }
 
 .contact-details h4 {
@@ -694,7 +698,7 @@ body {
 }
 
 .contact-details a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -704,11 +708,11 @@ body {
 }
 
 .contact-form {
-    background: var(--card-bg);
+    background: var(--light-bg);
     padding: 50px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
 }
 
 .contact-form h3 {
@@ -735,10 +739,10 @@ body {
 .form-group select {
     width: 100%;
     padding: 18px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     font-size: 1.1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--light-bg);
     color: var(--text-primary);
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
@@ -748,9 +752,9 @@ body {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    border-color: var(--primary-color);
+    background: var(--light-bg);
+    box-shadow: 0 0 20px rgba(44, 90, 160, 0.1);
 }
 
 .form-group input::placeholder,
@@ -761,9 +765,9 @@ body {
 /* Map Section */
 .map-section {
     padding: 100px 0;
-    background: var(--card-bg);
+    background: var(--light-bg);
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
 }
 
 .map-section h2 {
@@ -779,11 +783,11 @@ body {
 }
 
 .map-placeholder {
-    background: var(--dark-bg);
+    background: var(--card-bg);
     padding: 80px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
 }
 
 .map-placeholder i {
@@ -865,7 +869,8 @@ body {
     display: flex;
     align-items: center;
     padding: 150px 0 100px;
-    background: var(--dark-bg);
+    background: var(--gradient-2);
+    color: white;
     position: relative;
 }
 
@@ -904,22 +909,22 @@ body {
 }
 
 .contact-info {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 15px;
     margin: 40px 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact-info a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: var(--accent-color);
+    color: white;
 }
 
 .thank-you-buttons {
@@ -931,8 +936,8 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--card-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--primary-color);
+    color: white;
     padding: 60px 0;
     text-align: center;
 }
@@ -948,7 +953,7 @@ body {
     align-items: center;
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: white;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -956,14 +961,11 @@ body {
 .footer-logo i {
     margin-right: 15px;
     font-size: 2.5rem;
-    background: var(--gradient-2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent-color);
 }
 
 .footer p {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
 }
 
@@ -1019,12 +1021,13 @@ body {
         left: -100%;
         top: 80px;
         flex-direction: column;
-        background: rgba(10, 10, 10, 0.98);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid var(--border-color);
+        box-shadow: var(--shadow-light);
         padding: 40px 0;
         gap: 30px;
     }

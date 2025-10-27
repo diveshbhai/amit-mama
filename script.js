@@ -30,33 +30,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        }
     }
 });
 
 // Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe service cards and other elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .contact-item, .about-text');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe service cards and other elements
+    const animateElements = document.querySelectorAll('.service-card, .contact-item, .about-text, .feature, .value-card');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';
@@ -66,26 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const phone = this.querySelector('input[type="tel"]').value;
-    const message = this.querySelector('textarea').value;
-    
-    // Simple validation
-    if (!name || !email || !phone || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    // Show success message
-    alert('Thank you for your message! We will contact you soon.');
-    this.reset();
+// Form submission (only for forms without action attribute)
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form:not([action])');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = this.querySelector('input[type="text"]')?.value;
+            const email = this.querySelector('input[type="email"]')?.value;
+            const phone = this.querySelector('input[type="tel"]')?.value;
+            const message = this.querySelector('textarea')?.value;
+            
+            // Simple validation
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show success message
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+    });
 });
 
 // Add loading animation to buttons
@@ -104,6 +110,7 @@ document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
 document.addEventListener('DOMContentLoaded', () => {
     const truck = document.querySelector('.truck-animation i');
     if (truck) {
+        truck.style.transition = 'transform 0.5s ease';
         setInterval(() => {
             truck.style.transform = 'translateX(10px)';
             setTimeout(() => {
