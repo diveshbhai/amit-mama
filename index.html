@@ -6,13 +6,64 @@
     <title>JN Logistics - Refrigerated Van Services</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ===== Top Logo Section ===== */
+        .top-logo-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #eef3ff 100%);
+            padding: 30px 0 10px;
+            border-bottom: 2px solid #e2e6ea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeInDown 1s ease;
+        }
+
+        .top-logo-section img {
+            height: 120px;
+            width: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .top-logo-section img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Navbar Logo Styling ===== */
+        .company-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        /* ===== Footer Logo Styling ===== */
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Top Company Logo Section -->
+    <div class="top-logo-section">
+        <img src="jn.jpg" alt="JN Logistics Company Logo">
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-truck-moving"></i>
+                <img src="jn.jpg" alt="JN Logistics Logo" class="company-logo">
                 <span>JN LOGISTICS</span>
             </div>
             <ul class="nav-menu">
@@ -101,7 +152,7 @@
                 <h2>Meet Our Founder</h2>
                 <div class="owner-card">
                     <div class="owner-details">
-                        <h3>Amit Tharwani</h3>
+                        <h3>Amit Tharwani AND Gautam Singh</h3>
                         <p class="owner-title">Founder & Managing Director</p>
                         <p class="owner-description">Leading JN Logistics with years of expertise in cold chain transportation and logistics management.</p>
                     </div>
@@ -245,7 +296,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-truck-moving"></i>
+                    <img src="jn.jpg" alt="JN Logistics Logo">
                     <span>JN LOGISTICS</span>
                 </div>
                 <p>&copy; 2024 JN Logistics. All rights reserved.</p>
@@ -256,3 +307,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
